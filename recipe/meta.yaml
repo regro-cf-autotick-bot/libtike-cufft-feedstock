@@ -1,5 +1,5 @@
 {% set name = "libtike-cufft" %}
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 {% set build = 0 %}
 
 
@@ -16,7 +16,7 @@ package:
 
 source:
   url: https://github.com/carterbox/ptychocg/archive/{{ version }}.tar.gz
-  sha256: 41bbd057447be0c392654f8bb9fddebbc22bb98cab2f74714a638f155e0c2eb3
+  sha256: 139b071edf92f2bc60da5f32ac69bcd9b672c314d7ab5158850bffa6d455c8a1
 
 build:
   number: {{ build }}
