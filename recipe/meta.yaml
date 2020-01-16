@@ -45,7 +45,7 @@ requirements:
 
 test:
   imports:
-    - libtike.cufft
+    - libtike
 
 about:
   home: https://github.com/math-vrn/libtike-cufft
