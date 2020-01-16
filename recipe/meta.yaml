@@ -23,9 +23,9 @@ build:
   string: "{{ cuda_build_prefix }}py{{ py }}h{{ PKG_HASH }}_{{ build }}"
   skip: True  # [py<35 or not (linux64 and cuda_compiler_version != 'None')]
   script:
-    - ln -s ${CUDA_HOME}/include/* ${CONDA_PREFIX}/include/
-    - {{ PYTHON }} -m pip install .
-      --no-deps --ignore-installed --no-index --no-cache-dir -vv
+    - {{ PYTHON }} -m pip install . -vv
+      --no-deps --ignore-installed --no-index --no-cache-dir
+      --install-option="-GNinja"
   missing_dso_whitelist:
     - "*/libcuda.*"
 
@@ -45,7 +45,7 @@ requirements:
 
 test:
   imports:
-    - libtike.cufft
+    - libtike
 
 about:
   home: https://github.com/math-vrn/libtike-cufft
