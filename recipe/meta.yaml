@@ -43,7 +43,9 @@ requirements:
     - cupy
     - python
 
-#  Cannot test because there are no GPUs available
+test:
+  imports:
+    - libtike.cufft
 
 about:
   home: https://github.com/math-vrn/libtike-cufft
