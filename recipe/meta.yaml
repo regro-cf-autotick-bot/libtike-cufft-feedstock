@@ -1,5 +1,5 @@
 {% set name = "libtike-cufft" %}
-{% set version = "0.5.2" %}
+{% set version = "0.9.0" %}
 {% set build = 0 %}
 
 
@@ -16,18 +16,16 @@ package:
 
 source:
   url: https://github.com/carterbox/ptychocg/archive/{{ version }}.tar.gz
-  sha256: 139b071edf92f2bc60da5f32ac69bcd9b672c314d7ab5158850bffa6d455c8a1
+  sha256: 08cbbdd4253e1447ffe31a724b7372d40b536356d54656ce450703355f294854
 
 build:
   number: {{ build }}
-  string: "{{ cuda_build_prefix }}py{{ py }}h{{ PKG_HASH }}_{{ build }}"
-  skip: True  # [py<35 or not (linux64 and cuda_compiler_version != 'None')]
+  string: {{ cuda_build_prefix }}py{{ py }}h{{ PKG_HASH }}_{{ build }}
+  skip: true  # [py<35 or not (linux64 and cuda_compiler_version != 'None')]
   script:
-    - {{ PYTHON }} -m pip install . -vv
-      --no-deps --ignore-installed --no-index --no-cache-dir
-      --install-option="-GNinja"
+    - {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed --no-index --no-cache-dir --install-option="-GNinja"
   missing_dso_whitelist:
-    - "*/libcuda.*"
+    - '*/libcuda.*'
 
 requirements:
   build:
